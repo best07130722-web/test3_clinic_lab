@@ -101,15 +101,18 @@ function Home({ setPage }) {
           </p>
 
           <div className="mobileHeroButtons">
-            <button className="mobilePrimaryBtn" onClick={() => setPage("simulator")}>
-              売却価格を試算する <span>→</span>
-            </button>
+  <button className="mobilePrimaryBtn" onClick={() => setPage('simulator')}>
+    売却価格を試算する <span>→</span>
+  </button>
 
-            <button className="mobileSecondaryBtn" onClick={() => setPage("seminars")}>
-              セミナーを見る
-            </button>
-          </div>
-        </div>
+  <button className="mobileSecondaryBtn" onClick={() => setPage('seminars')}>
+    セミナーを見る <span>→</span>
+  </button>
+
+  <button className="mobileTextBtn" onClick={() => setPage('columns')}>
+    コラムを見る <span>→</span>
+  </button>
+</div>
 
         <div className="mobileFeatureCard">
           <div>
