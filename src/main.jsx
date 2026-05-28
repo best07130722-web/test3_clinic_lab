@@ -85,124 +85,93 @@ function Header({ page, setPage }) {
 }
 function Home({ setPage }) {
   return (
-<main className="mobileTopPage">
-  <section className="mobileHero">
-  <div className="heroLayout">
-    <div className="mobileHeroCopy">
-      <h1>
-        クリニックの承継・<br />
-        売却・開業を、<br />
-        もっと相談しやすく。
-      </h1>
+    <main className="mobileTopPage">
+      <section className="mobileHero">
+        <div className="heroLayout">
+          <div className="mobileHeroCopy">
+            <h1>
+              クリニックの承継・<br />
+              売却・開業を、<br />
+              もっと相談しやすく。
+            </h1>
 
-      <p>
-        匿名で使える簡易シミュレーターと、医師向けの
-        コラム・セミナーで、情報収集から無料相談までを
-        シームレスにつなぎます。
-      </p>
+            <p>
+              匿名で使える簡易シミュレーターと、医師向けの
+              コラム・セミナーで、情報収集から無料相談までを
+              シームレスにつなぎます。
+            </p>
 
-      <div className="mobileHeroButtons">
-        <button className="mobilePrimaryBtn" onClick={() => setPage('simulator')}>
-          売却価格を試算する <span>→</span>
-        </button>
+            <div className="mobileHeroButtons">
+              <button className="mobilePrimaryBtn" onClick={() => setPage('simulator')}>
+                売却価格を試算する <span>→</span>
+              </button>
 
-        <button className="mobileSecondaryBtn" onClick={() => setPage('seminars')}>
-          セミナーを見る <span>→</span>
-        </button>
+              <button className="mobileSecondaryBtn" onClick={() => setPage('seminars')}>
+                セミナーを見る <span>→</span>
+              </button>
 
-        <button className="mobileTextBtn" onClick={() => setPage('columns')}>
-          コラムを見る <span>→</span>
-        </button>
-      </div>
-    </div>
-
-    <div className="heroVisual">
-      <div className="heroImageCard">
-        <div className="doctorMock">
-          <div className="doctorCircle">Dr</div>
-          <div>
-            <h3>医療承継・開業の相談を<br />もっと分かりやすく</h3>
-            <p>専門家への相談前に、まずは情報整理から始められます。</p>
-          </div>
-        </div>
-
-        <div className="miniStats">
-          <div>
-            <strong>匿名</strong>
-            <span>相談前に試算</span>
-          </div>
-          <div>
-            <strong>無料</strong>
-            <span>情報収集OK</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-        <div className="mobileFeatureCard">
-          <div>
-            <UserRound className="mobileFeatureIcon" />
-            <h3>匿名で利用可</h3>
-            <p>安心して試算</p>
-          </div>
-          <div>
-            <Headphones className="mobileFeatureIcon" />
-            <h3>無料相談対応</h3>
-            <p>専門家に相談可</p>
-          </div>
-          <div>
-            <FileText className="mobileFeatureIcon" />
-            <h3>コラム掲載中</h3>
-            <p>最新情報を発信</p>
-          </div>
-          <div>
-            <CalendarDays className="mobileFeatureIcon" />
-            <h3>セミナー開催中</h3>
-            <p>オンライン参加可</p>
-          </div>
-        </div>
-
-        <div className="mobileRecommend">
-          <h2>こんな方におすすめ</h2>
-
-          <div className="mobileRecommendItem">
-            <span>✓</span>
-            <div>
-              <h3>クリニックの売却を検討している方</h3>
-              <p>相場や価格を把握し、最適な売却を進めたい方</p>
+              <button className="mobileTextBtn" onClick={() => setPage('columns')}>
+                コラムを見る <span>→</span>
+              </button>
             </div>
           </div>
 
-          <div className="mobileRecommendItem">
-            <span>✓</span>
-            <div>
-              <h3>親族や第三者への承継を考えている方</h3>
-              <p>承継の進め方や注意点を知りたい方</p>
-            </div>
-          </div>
+          <div className="heroVisual">
+            <div className="heroImageCard">
+              <div className="doctorMock">
+                <div className="doctorCircle">Dr</div>
+                <div>
+                  <h3>
+                    医療承継・開業の相談を<br />
+                    もっと分かりやすく
+                  </h3>
+                  <p>
+                    専門家への相談前に、まずは情報整理から始められます。
+                  </p>
+                </div>
+              </div>
 
-          <div className="mobileRecommendItem">
-            <span>✓</span>
-            <div>
-              <h3>新規開業や分院展開を考えている方</h3>
-              <p>開業エリアや資金計画などの情報を集めたい方</p>
+              <div className="miniStats">
+                <div>
+                  <strong>匿名</strong>
+                  <span>相談前に試算</span>
+                </div>
+                <div>
+                  <strong>無料</strong>
+                  <span>情報収集OK</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-
-        <button className="mobileBottomCta" onClick={() => setPage("consult")}>
-          <span className="mobileChatIcon">→</span>
-          <strong>まずは無料で相談してみる</strong>
-          <span>→</span>
-        </button>
       </section>
+
+      <section className="mobileFeatures">
+        <Feature icon={<UserRound />} title="匿名で利用可" text="安心して試算" />
+        <Feature icon={<Headphones />} title="無料相談対応" text="専門家に相談可" />
+        <Feature icon={<FileText />} title="コラム掲載中" text="最新情報を発信" />
+        <Feature icon={<CalendarDays />} title="セミナー開催中" text="オンライン参加可" />
+      </section>
+
+      <button className="mobileBottomCta" onClick={() => setPage('consult')}>
+        <span className="mobileChatIcon">→</span>
+        <strong>まずは無料で相談してみる</strong>
+        <span>→</span>
+      </button>
     </main>
   );
 }
-
-function Feature({ icon, title, text, onClick }) { return <button className="feature" onClick={onClick}>{icon}<h3>{title}</h3><p>{text}</p><span>詳しく見る →</span></button>; }
-
+function Feature({ icon, title, text, onClick }) {
+  return (
+    <button className="feature" onClick={onClick}>
+      <div className="featureIcon">{icon}</div>
+      <div>
+        <h3>{title}</h3>
+        <p>{text}</p>
+      </div>
+    </button>
+  );
+}
 function Simulator({ setPage }) {
   const [clinicType, setClinicType] = useState('個人開業');
   const [transfer, setTransfer] = useState('事業譲渡');
