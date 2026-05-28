@@ -1,8 +1,19 @@
 import React, { useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { ArrowRight, BookOpen, Building2, CalendarDays, CheckCircle2, ChevronLeft, FileText, Mail, Menu, ShieldCheck, X } from 'lucide-react';
-import './style.css';
+import {
+  ArrowRight,
+  BookOpen,
+  Building2,
+  CalendarDays,
+  CheckCircle2,
+ ChevronLeft,
+  FileText,
+  UserRound,
+  Headphones,
+  Menu
+} from 'lucide-react';
 
+import './style.css';
 const categories = ['すべて', '承継・売却', 'M&A基礎知識', 'セミナーレポート'];
 const departments = ['内科', '小児科', '皮膚科', '整形外科', '眼科', '耳鼻咽喉科', '婦人科', '精神科・心療内科', '歯科', 'その他'];
 const areas = ['北海道・東北', '関東', '中部', '関西', '中国・四国', '九州・沖縄'];
@@ -33,34 +44,94 @@ function Header({ page, setPage }) {
     {open && <div className="mobileNav">{nav.map(([key, label]) => <button key={key} onClick={() => { setPage(key); setOpen(false); }}>{label}</button>)}</div>}
   </header>;
 }
-
 function Home({ setPage }) {
-  return <main>
-    <section className="hero section">
-      <div className="heroText">
-        <p className="eyebrow">医師・医療法人向け</p>
-        <h1>クリニックの承継・売却・開業を、もっと相談しやすく。</h1>
-        <p className="lead">匿名で使える簡易シミュレーターと、医師向けのコラム・セミナーで、情報収集から無料相談までをシームレスにつなぎます。</p>
-        <div className="actions"><button className="primary" onClick={() => setPage('simulator')}>売却価格を試算する <ArrowRight size={18}/></button><button className="secondary" onClick={() => setPage('seminars')}>セミナーを見る</button></div>
-      </div>
-      <div className="heroCard">
-        <div className="estimateBox"><span>概算価格レンジ</span><strong>3,200万〜5,800万円</strong><small>入力値に応じて自動計算</small></div>
-        <div className="miniGrid"><div>匿名利用</div><div>無料相談</div><div>コラム</div><div>セミナー</div></div>
-      </div>
-    </section>
-    <section className="section">
-      <h2>提供機能</h2>
-      <div className="cards three">
-        <Feature icon={<Building2/>} title="売却価格シミュレーター" text="年間売上・譲渡資産・診療科・エリアから概算価格と手取りを確認できます。" onClick={() => setPage('simulator')} />
-        <Feature icon={<BookOpen/>} title="コラム閲覧" text="承継・売却・M&A基礎知識・セミナーレポートをカテゴリ別に閲覧できます。" onClick={() => setPage('columns')} />
-        <Feature icon={<CalendarDays/>} title="セミナー申込" text="オンラインセミナーを確認し、そのまま申込フォームへ進めます。" onClick={() => setPage('seminars')} />
-      </div>
-    </section>
-    <section className="section soft"><div className="sectionHead"><h2>最新コラム</h2><button onClick={() => setPage('columns')}>一覧を見る</button></div><ArticleGrid articles={articles.slice(0,3)} setPage={setPage}/></section>
-    <section className="profile section"><h2>運営者プロフィール</h2><p>医療・M&A・開業支援領域において、医師の意思決定を支える情報提供と相談導線の設計を行います。難しい専門情報を、安心して理解できるUI/UXで届けることを重視しています。</p></section>
-  </main>;
-}
+  return (
+    <main className="mobileTopPage">
+      <section className="mobileHero">
+        <div className="mobileHeroCopy">
+          <h1>
+            クリニックの承継・<br />
+            売却・開業を、<br />
+            もっと相談しやすく。
+          </h1>
 
+          <p>
+            匿名で使える簡易シミュレーターと、医師向けの
+            コラム・セミナーで、情報収集から無料相談までを
+            シームレスにつなぎます。
+          </p>
+
+          <div className="mobileHeroButtons">
+            <button className="mobilePrimaryBtn" onClick={() => setPage("simulator")}>
+              売却価格を試算する <span>→</span>
+            </button>
+
+            <button className="mobileSecondaryBtn" onClick={() => setPage("seminars")}>
+              セミナーを見る
+            </button>
+          </div>
+        </div>
+
+        <div className="mobileFeatureCard">
+          <div>
+            <UserRound className="mobileFeatureIcon" />
+            <h3>匿名で利用可</h3>
+            <p>安心して試算</p>
+          </div>
+          <div>
+            <Headphones className="mobileFeatureIcon" />
+            <h3>無料相談対応</h3>
+            <p>専門家に相談可</p>
+          </div>
+          <div>
+            <FileText className="mobileFeatureIcon" />
+            <h3>コラム掲載中</h3>
+            <p>最新情報を発信</p>
+          </div>
+          <div>
+            <CalendarDays className="mobileFeatureIcon" />
+            <h3>セミナー開催中</h3>
+            <p>オンライン参加可</p>
+          </div>
+        </div>
+
+        <div className="mobileRecommend">
+          <h2>こんな方におすすめ</h2>
+
+          <div className="mobileRecommendItem">
+            <span>✓</span>
+            <div>
+              <h3>クリニックの売却を検討している方</h3>
+              <p>相場や価格を把握し、最適な売却を進めたい方</p>
+            </div>
+          </div>
+
+          <div className="mobileRecommendItem">
+            <span>✓</span>
+            <div>
+              <h3>親族や第三者への承継を考えている方</h3>
+              <p>承継の進め方や注意点を知りたい方</p>
+            </div>
+          </div>
+
+          <div className="mobileRecommendItem">
+            <span>✓</span>
+            <div>
+              <h3>新規開業や分院展開を考えている方</h3>
+              <p>開業エリアや資金計画などの情報を集めたい方</p>
+            </div>
+          </div>
+        </div>
+
+        <button className="mobileBottomCta" onClick={() => setPage("consult")}>
+          <span className="mobileChatIcon">→</span>
+          <strong>まずは無料で相談してみる</strong>
+          <span>→</span>
+        </button>
+      </section>
+    </main>
+  );
+}
 function Feature({ icon, title, text, onClick }) { return <button className="feature" onClick={onClick}>{icon}<h3>{title}</h3><p>{text}</p><span>詳しく見る →</span></button>; }
 
 function Simulator({ setPage }) {
