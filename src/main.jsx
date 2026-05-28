@@ -99,7 +99,7 @@ function Home({ setPage }) {
             コラム・セミナーで、情報収集から無料相談までを
             シームレスにつなぎます。
           </p>
-
+</div>
         <div className="mobileHeroButtons">
   <button className="mobilePrimaryBtn" onClick={() => setPage('simulator')}>
     売却価格を試算する <span>→</span>
