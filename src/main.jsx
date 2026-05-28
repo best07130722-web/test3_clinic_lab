@@ -81,7 +81,7 @@ function Header({ page, setPage }) {
         </div>
       )}
     </header>
-  );
+  )
 }
 function Home({ setPage }) {
   return (
@@ -100,7 +100,7 @@ function Home({ setPage }) {
             シームレスにつなぎます。
           </p>
 
-          <div className="mobileHeroButtons">
+        <div className="mobileHeroButtons">
   <button className="mobilePrimaryBtn" onClick={() => setPage('simulator')}>
     売却価格を試算する <span>→</span>
   </button>
