@@ -85,35 +85,61 @@ function Header({ page, setPage }) {
 }
 function Home({ setPage }) {
   return (
-    <main className="mobileTopPage">
-      <section className="mobileHero">
-        <div className="mobileHeroCopy">
-          <h1>
-            クリニックの承継・<br />
-            売却・開業を、<br />
-            もっと相談しやすく。
-          </h1>
+<main className="mobileTopPage">
+  <section className="mobileHero">
+  <div className="heroLayout">
+    <div className="mobileHeroCopy">
+      <h1>
+        クリニックの承継・<br />
+        売却・開業を、<br />
+        もっと相談しやすく。
+      </h1>
 
-          <p>
-            匿名で使える簡易シミュレーターと、医師向けの
-            コラム・セミナーで、情報収集から無料相談までを
-            シームレスにつなぎます。
-          </p>
-</div>
-        <div className="mobileHeroButtons">
-  <button className="mobilePrimaryBtn" onClick={() => setPage('simulator')}>
-    売却価格を試算する <span>→</span>
-  </button>
+      <p>
+        匿名で使える簡易シミュレーターと、医師向けの
+        コラム・セミナーで、情報収集から無料相談までを
+        シームレスにつなぎます。
+      </p>
 
-  <button className="mobileSecondaryBtn" onClick={() => setPage('seminars')}>
-    セミナーを見る <span>→</span>
-  </button>
+      <div className="mobileHeroButtons">
+        <button className="mobilePrimaryBtn" onClick={() => setPage('simulator')}>
+          売却価格を試算する <span>→</span>
+        </button>
 
-  <button className="mobileTextBtn" onClick={() => setPage('columns')}>
-    コラムを見る <span>→</span>
-  </button>
-</div>
+        <button className="mobileSecondaryBtn" onClick={() => setPage('seminars')}>
+          セミナーを見る <span>→</span>
+        </button>
 
+        <button className="mobileTextBtn" onClick={() => setPage('columns')}>
+          コラムを見る <span>→</span>
+        </button>
+      </div>
+    </div>
+
+    <div className="heroVisual">
+      <div className="heroImageCard">
+        <div className="doctorMock">
+          <div className="doctorCircle">Dr</div>
+          <div>
+            <h3>医療承継・開業の相談を<br />もっと分かりやすく</h3>
+            <p>専門家への相談前に、まずは情報整理から始められます。</p>
+          </div>
+        </div>
+
+        <div className="miniStats">
+          <div>
+            <strong>匿名</strong>
+            <span>相談前に試算</span>
+          </div>
+          <div>
+            <strong>無料</strong>
+            <span>情報収集OK</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
         <div className="mobileFeatureCard">
           <div>
             <UserRound className="mobileFeatureIcon" />
@@ -174,6 +200,7 @@ function Home({ setPage }) {
     </main>
   );
 }
+
 function Feature({ icon, title, text, onClick }) { return <button className="feature" onClick={onClick}>{icon}<h3>{title}</h3><p>{text}</p><span>詳しく見る →</span></button>; }
 
 function Simulator({ setPage }) {
