@@ -45,7 +45,7 @@ function Header({ page, setPage }) {
   return (
     <header className="header">
       <button className="brand" onClick={() => setPage('home')}>
-        <span>開業ラボ</span>
+        <span>クリニック開業ラボ</span>
         <small>Clinic Succession Lab</small>
       </button>
       <nav className="nav">
