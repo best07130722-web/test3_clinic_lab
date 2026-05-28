@@ -48,6 +48,17 @@ function Header({ page, setPage }) {
         <span>開業ラボ</span>
         <small>Clinic Succession Lab</small>
       </button>
+      <nav className="nav">
+  {tabs.map((item) => (
+    <button
+      key={item.id}
+      className={page === item.id ? 'active' : ''}
+      onClick={() => setPage(item.id)}
+    >
+      {item.label}
+    </button>
+  ))}
+</nav>
 
       <button className="menuBtn" onClick={() => setOpen(!open)}>
         {open ? 'X' : <Menu size={22} />}
