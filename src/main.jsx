@@ -34,15 +34,43 @@ const seminars = [
 
 function Header({ page, setPage }) {
   const [open, setOpen] = useState(false);
-  const nav = [
-    ['home', 'TOP'], ['simulator', 'シミュレーター'], ['columns', 'コラム'], ['seminars', 'セミナー'], ['consult', '無料相談']
+  const tabs = [
+    { id: 'home', label: 'TOP' },
+    { id: 'simulator', label: 'シミュレーター' },
+    { id: 'columns', label: 'コラム' },
+    { id: 'seminars', label: 'セミナー' },
+    { id: 'consult', label: '無料相談' },
   ];
-  return <header className="header">
-    <button className="brand" onClick={() => setPage('home')}><span>開業ラボ</span><small>Clinic Succession Lab</small></button>
-    <nav className="nav">{nav.map(([key, label]) => <button key={key} className={page === key ? 'active' : ''} onClick={() => setPage(key)}>{label}</button>)}</nav>
-    <button className="menuBtn" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button>
-    {open && <div className="mobileNav">{nav.map(([key, label]) => <button key={key} onClick={() => { setPage(key); setOpen(false); }}>{label}</button>)}</div>}
-  </header>;
+
+  return (
+    <header className="header">
+      <button className="brand" onClick={() => setPage('home')}>
+        <span>開業ラボ</span>
+        <small>Clinic Succession Lab</small>
+      </button>
+
+      <button className="menuBtn" onClick={() => setOpen(!open)}>
+        {open ? 'X' : <Menu size={22} />}
+      </button>
+
+      {open && (
+        <div className="mobileNav">
+          {tabs.map((item) => (
+            <button
+              key={item.id}
+              className={page === item.id ? 'active' : ''}
+              onClick={() => {
+                setPage(item.id);
+                setOpen(false);
+              }}
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
+      )}
+    </header>
+  );
 }
 function Home({ setPage }) {
   return (
